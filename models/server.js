@@ -6,7 +6,7 @@ class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
-    this.columnsPath = "api/columns";
+    this.columnsPath = "/api/Configuration";
     this.connectDb();
     this.middlewares();
     this.routes();
@@ -16,11 +16,13 @@ class Server {
     await dbConection();
   }
   middlewares() {
-    this.app.use(cors);
+    this.app.use(cors());
+    
+    this.app.use(express.json());
   }
 
   routes() {
-    this.app.use(this.columnsPath, require("../routes/columns.routes"));
+    this.app.use(this.columnsPath, require("../routes/table.routes"));
   }
 
   listen() {
