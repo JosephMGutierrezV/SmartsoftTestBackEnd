@@ -1,6 +1,9 @@
 const { Schema, model } = require("mongoose");
 
 const Data1Schema = Schema({
+  tableTypeId: {
+    type: String,
+  },
   T1C1: {
     type: Number,
   },

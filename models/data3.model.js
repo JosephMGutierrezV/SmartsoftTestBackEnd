@@ -1,6 +1,9 @@
 const { Schema, model } = require("mongoose");
 
 const Data3Schema = Schema({
+  tableTypeId: {
+    type: String,
+  },
   T3C1: {
     type: Number,
   },
@@ -9,7 +12,7 @@ const Data3Schema = Schema({
   },
 
   T3C3: {
-    type: Date,
+    type: String,
   },
 });
 

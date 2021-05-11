@@ -1,26 +1,16 @@
 const { Router } = require("express");
+const {
+  createData,
+  deleteData,
+  getData,
+  updateData,
+} = require("../controllers/datos.controller");
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.json({
-    msg: "get",
-  });
-});
-router.put("/", (req, res) => {
-  res.json({
-    msg: "put",
-  });
-});
-router.post("/", (req, res) => {
-  res.json({
-    msg: "post",
-  });
-});
-router.delete("/", (req, res) => {
-  res.json({
-    msg: "post",
-  });
-});
+router.get("/getTableData", getData);
+router.put("/update-item/:id", updateData);
+router.post("/create-item", createData);
+router.delete("/delete-item/:id", deleteData);
 
 module.exports = router;
